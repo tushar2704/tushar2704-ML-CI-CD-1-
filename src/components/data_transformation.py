@@ -52,9 +52,23 @@ class DataTranformation:
                     ("imputer",SimpleImputer(strategy='most_frequent') ),
                     ("one_hot_encoder", OneHotEncoder()),
                     ("scaler", StandardScaler())
-
                 ]
             )
-        except:
-            pass
+
+            # Logging
+            logging.info(f"Numerical Columns Standard Sclaing Completed: {categorical_columns}")
+            logging.info(f"Categorical Columns Encoding Completed: {numerical_columns}")
+
+
+            # Column Transformer
+            preprocessor = ColumnTransformer(
+                [
+                ('num_pipeline', num_pipeline, numerical_columns),
+                ('cat_pipeline', cat_pipeline, categorical_columns)
+                ]
+            )
+
+            return preprocessor
+        except Exception as e:
+            raise CustomException(e, sys)
 
