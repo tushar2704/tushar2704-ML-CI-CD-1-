@@ -19,4 +19,4 @@ def predict_datapoint():
     if request.method=="GET":
         return render_template("home.html")
     else:
-        pass
+        data =CustomData
