@@ -1,7 +1,7 @@
 import os
 import sys
 from dataclasses import dataclass
-
+from src.utils import evaluate_models
 from catboost import CatBoostClassifier
 
 from sklearn.ensemble import (AdaBoostRegressor, GradientBoostingRegressor,
@@ -13,7 +13,8 @@ from sklearn.tree import DecisionTreeRegressor
 from xgboost import XGBRegressor
 from src.exception import CustomException
 from src.logger import logging
-from src.utils import save_object, 
+from src.utils import save_object
+from catboost import CatBoostRegressor
 
 @dataclass
 class ModelTrainerConfig:
