@@ -8,4 +8,5 @@ xgboost
 dill
 dataclasses
 datetime
+flask
 #-e .
